@@ -1,0 +1,15 @@
+project-root
+│
+├── src
+│   ├── controllers
+│   ├── routes
+│   ├── services
+│   ├── middleware
+│   ├── config
+│   └── app.js
+│
+├── prisma
+│
+├── .env
+├── package.json
+└── server.js
