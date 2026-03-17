@@ -1,3 +1,6 @@
+import { config } from "dotenv";
+config();
+
 const fs = require('fs');
 
 const express = require('express');
@@ -11,12 +14,14 @@ const app = express();
 // app.use(express.json());
 
 // app.use(express.static('public'));
-
 // app.use(express.urlencoded({ extended: true }));
 
 // app.use(()=>{
 //   console.log('Middleware is running!');
-//   // next();
+//   if (Math.random() < 0.5) {
+//     return res.status(403).json({ error: "Forbidden" });
+//   }
+//   next();
 // })
 
 const port = 3000;
@@ -38,15 +43,15 @@ app.use('/tasks', taskRoutes);
 // // U - Update - PUT/PATCH
 // // D - Delete - DELETE
 
-// app.get('/', (req, res) => {
-//   res.send('Hello, World!');
-// });
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
 
 // // 1. READ: Get all tasks
-// app.get('/tasks', async (req, res) => {
-//   const tasks = await readData();
-//   res.json(tasks);
-// });
+app.get('/tasks', async (req, res) => {
+  const tasks = await readData();
+  res.json(tasks);
+});
 
 // // 2. CREATE: Add a new task
 // app.post('/tasks', (req, res) => {
